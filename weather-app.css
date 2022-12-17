@@ -2,6 +2,7 @@
   font-family: 'Courier New', Courier, monospace;
   text-align: center;
   margin: 100px auto;
+  margin-bottom: 20px;
   width: 750px;
   border: solid rgb(11, 91, 113);
   border-radius: 10px;
@@ -111,4 +112,11 @@ button:hover {
   font-weight: lighter;
   font-size: 18px;
   padding: 5px 5px;
+}
+a {
+  color: black;
+  font-size: medium;
+  margin-left: 350px;
+  margin-top: 40px;
+  padding-top: 0px;
 }
