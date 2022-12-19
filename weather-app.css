@@ -1,26 +1,23 @@
 .container {
   font-family: 'Courier New', Courier, monospace;
-  text-align: center;
-  margin: 100px auto;
-  margin-bottom: 20px;
-  width: 750px;
+  box-shadow: 5px 5px 10px grey;
+  padding: 20px;
+  padding-left: 40px;
   border: solid rgb(11, 91, 113);
   border-radius: 10px;
   border-width: 2px;
-  padding-left: 100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
   background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+  margin-bottom: 5px;
+}
+.container-wrapper {
+  max-width: 650px;
+  margin: 30px auto;
 }
 
 form {
   font-size: 18px;
-  text-align: center;
-  margin-left: -40px;
-  margin-bottom: 30px;
-  padding: 10px;
-  width: 650px;
-  padding-left: 5px;
+  width: 750px;
+  margin-left: -20px;
 }
 
 .form {
@@ -29,10 +26,9 @@ form {
   border-radius: 10px;
   border-width: 2px;
   padding-left: 20px;
-  width: 200px;
+  width: 220px;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-bottom: 30px;
 }
 #submit {
   border: solid;
@@ -47,13 +43,13 @@ form {
   font-weight: lighter;
 }
 button {
+  margin-left: 40px;
   padding-top: 5px;
   padding-bottom: 5px;
   background-color: white;
   border: solid rgb(11, 91, 113);
   border-width: 2px;
   border-radius: 10px;
-  margin-left: 50px;
   padding-left: 10px;
   padding-right: 5px;
   font-weight: lighter;
@@ -69,54 +65,59 @@ button:hover {
 }
 
 .main-highlight {
-  text-align: center;
-  margin: 20px auto;
-  margin-left: -10px;
+  margin-top: 50px;
+  line-height: 40px;
+  font-size: 26px;
   font-weight: bolder;
+  text-align: center;
+  margin-top: 30px;
 }
 .date {
   font-size: 20px;
+  line-height: 40px;
   text-align: center;
-  margin-left: -90px;
-  width: 400px;
 }
 
 .weather-pic {
+  font-size: 20px;
+  line-height: 40px;
   text-align: center;
-  margin-left: 80px;
 }
 .temperature {
-  margin-left: 70px;
+  font-size: 20px;
+  line-height: 25px;
   font-weight: bolder;
-}
-
-.col-7 {
-  margin-top: 20px;
-  margin-left: 80px;
   text-align: center;
 }
+
 .humidity {
-  margin-left: 90px;
   font-size: 20px;
+  line-height: 40px;
   font-weight: lighter;
 }
 
 .wind {
-  margin-left: 90px;
+  margin-bottom: 0;
   font-size: 20px;
+  line-height: 40px;
   font-weight: lighter;
 }
 .prediction {
-  margin-left: 100px;
   width: 250px;
   font-weight: lighter;
   font-size: 18px;
   padding: 5px 5px;
+  margin-left: 30px;
+  margin-top: 50px;
 }
+.details {
+  margin-left: 30px;
+  margin-top: 40px;
+  text-align: center;
+}
+
 a {
   color: black;
-  font-size: medium;
-  margin-left: 350px;
-  margin-top: 40px;
-  padding-top: 0px;
+  margin-left: 10px;
+  font-size: 15px;
 }

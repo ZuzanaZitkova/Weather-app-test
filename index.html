@@ -21,38 +21,44 @@
     <title>What's the weather</title>
   </head>
   <body>
-    <div class="container">
-      <form>
-        <input
-          type="text"
-          class="form"
-          id="city-form"
-          placeholder="Seach city"
-        />
-        <input type="submit" id="submit" value="submit" />
-        <button id="location-button">Current location 📍</button>
-      </form>
-      <div class="row">
-        <div class="col-3">
-          <h1 class="main-highlight" id="city-name">Christchuch</h1>
-          <h3 class="date" id="date-today">today</h3>
-          <h1 class="weather-pic" id="picture-of-weather">☀️</h1>
-          <h2 class="temperature" id="temp">20°C</h2>
-        </div>
-        <div class="col-7" id="weather-details">
-          <br />
-          <p class="humidity" id="'humidity">humidity: 40%</p>
-          <p class="wind" id="wind">wind: 20km/h</p>
-          <button class="prediction" id="next-week-button">
-            Weather for next week
-          </button>
-        </div>
-      </div>
+    <div class="container-wrapper">
+      <div class="container">
+        <form>
+          <input
+            type="text"
+            class="form"
+            id="city-form"
+            placeholder="Seach city"
+          />
+          <input type="submit" id="submit" value="submit" />
+          <button id="location-button">Current location 📍</button>
+        </form>
 
-      <script src="big-weather-app.js"></script>
+        <div class="row">
+          <div class="col-6">
+            <h1 class="main-highlight" id="city-name">Christchuch</h1>
+            <h3 class="date" id="date-today">today</h3>
+            <h1 class="weather-pic" id="picture-of-weather">☀️</h1>
+            <h2 class="temperature" id="temp">20°C</h2>
+          </div>
+
+          <div class="col-6" id="weather-details">
+            <div class="details">
+              <br />
+              <p class="humidity" id="'humidity">humidity: 40%</p>
+              <p class="wind" id="wind">wind: 20km/h</p>
+            </div>
+            <button class="prediction" id="next-week-button">
+              Weather for next week
+            </button>
+          </div>
+        </div>
+
+        <script src="big-weather-app.js"></script>
+      </div>
+      <a href="https://github.com/ZuzanaZitkova/Weather-app-test.git">
+        Open-source code by ZuzanaZitkova 💪</a
+      >
     </div>
-    <a href="https://github.com/ZuzanaZitkova/Weather-app-test.git">
-      Open-source code by ZuzanaZitkova 💪</a
-    >
   </body>
 </html>
