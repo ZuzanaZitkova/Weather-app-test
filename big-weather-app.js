@@ -45,13 +45,59 @@ function changeCityName(event) {
   city.innerHTML = input.value;
 }
 
-submitCity.addEventListener('submit', changeCityName);
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let daysHere = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ];
+  let day = daysHere[date.getDay()];
+  let monthsHere = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'November',
+    'December'
+  ];
+  let month = monthsHere[date.getMonth() - 1];
+  let dateNow = date.getDate();
+  let year = date.getFullYear();
 
+  return `${day}, ${dateNow} ${month} ${year} `;
+}
 //add function to change the temperature to temp. of the searched city
-function getTemperature(response) {
+function getWeatherDetails(response) {
   let temperature = Math.round(response.data.main.temp);
   let change = document.querySelector('#temp');
   change.innerHTML = `${temperature}°C`;
+
+  let windNow = Math.round(response.data.wind.speed);
+  let windChange = document.querySelector('#wind');
+  windChange.innerHTML = `wind: ${windNow} km/h`;
+
+  let humidityNow = Math.round(response.data.main.humidity);
+  let humidityChange = document.querySelector('#humidity');
+  humidityChange.innerHTML = `humidity: ${humidityNow} %`;
+
+  let dateNow = document.querySelector('#date-today');
+  dateNow.innerHTML = formatDate(response.data.dt * 1000);
+
+  let iconChange = document.querySelector('#picture-of-weather');
+  iconChange.setAttribute(
+    'src',
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 function changeTemp() {
   let theCity = document.querySelector('#city-form');
@@ -61,10 +107,8 @@ function changeTemp() {
   let units = 'metric';
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${apiCity}&appid=${apiKey}&units=${units}`;
 
-  axios.get(apiUrl).then(getTemperature);
+  axios.get(apiUrl).then(getWeatherDetails);
 }
-
-submitCity.addEventListener('submit', changeTemp);
 
 //add a fucntion to change the location to a current loccation
 
@@ -86,5 +130,7 @@ function getPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+submitCity.addEventListener('submit', changeTemp);
 let newLocation = document.querySelector('#location-button');
 newLocation.addEventListener('click', getPosition);
+submitCity.addEventListener('submit', changeCityName);
