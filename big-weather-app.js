@@ -98,7 +98,10 @@ function getWeatherDetails(response) {
     'src',
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  
+
+  let describeNow = response.data.weather[0].description;
+  let describeChange = document.querySelector('#describe-weather');
+  describeChange.innerHTML = describeNow;
 }
 function changeTemp() {
   let theCity = document.querySelector('#city-form');
