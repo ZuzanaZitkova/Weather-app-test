@@ -123,15 +123,27 @@ button:hover {
   text-align: center;
 }
 
-a {
+.link {
   color: black;
   margin-left: 10px;
   font-size: 15px;
 }
-.unit {
-  text-decoration: none;
+a {
   font-size: 20px;
   line-height: 25px;
   font-weight: bolder;
   text-align: center;
+  text-decoration: none;
+}
+
+.temperature .units-celsius {
+  text-decoration: none;
+  color: black;
+  pointer-events: none;
+}
+
+.temperature .units-celsius:hover {
+  cursor: default;
+  color: black;
+  text-decoration: none;
 }

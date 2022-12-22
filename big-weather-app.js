@@ -36,7 +36,6 @@ function currentTime() {
 currentTime();
 
 //add function to change the main highlight to the searched city
-let submitCity = document.querySelector('form');
 
 function changeCityName(event) {
   event.preventDefault();
@@ -79,8 +78,10 @@ function formatDate(timestamp) {
 //add function to change the temperature to temp. of the searched city
 function getWeatherDetails(response) {
   let temperature = Math.round(response.data.main.temp);
-  let change = document.querySelector('#temp');
-  change.innerHTML = `${temperature}°C`;
+  let change = document.querySelector('#number');
+  change.innerHTML = `${temperature}`;
+
+  celsius = Math.round(response.data.main.temp);
 
   let windNow = Math.round(response.data.wind.speed);
   let windChange = document.querySelector('#wind');
@@ -122,6 +123,7 @@ function showData(response) {
   let locName = document.querySelector('#city-name');
   locName.innerHTML = response.data.name;
 }
+
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -129,12 +131,41 @@ function showPosition(position) {
   let currentapiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(currentapiUrl).then(showData);
 }
-
 function getPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+function showCelsius(event) {
+  event.preventDefault();
+  celsiusChange.classList.add('units-celsius');
+  farenheitChange.classList.remove('units-celsius');
+  let celsiustemp = document.querySelector('#number');
+  celsiustemp.innerHTML = celsius;
+}
+
+function showFarenheit(change) {
+  change.preventDefault();
+  celsiusChange.classList.remove('units-celsius');
+  farenheitChange.classList.add('units-celsius');
+  let temperature = document.querySelector('#number');
+  let farenheitHere = (temperature.innerHTML * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(farenheitHere);
+}
+let celsius = 0;
+
+let submitCity = document.querySelector('form');
+
 submitCity.addEventListener('submit', changeTemp);
+
 let newLocation = document.querySelector('#location-button');
 newLocation.addEventListener('click', getPosition);
+
 submitCity.addEventListener('submit', changeCityName);
+
+let celsiusChange = document.querySelector('#celsius');
+celsiusChange.addEventListener('click', showCelsius);
+
+submitCity.addEventListener('submit', showCelsius);
+
+let farenheitChange = document.querySelector('#farenheit');
+farenheitChange.addEventListener('click', showFarenheit);
