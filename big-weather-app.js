@@ -55,7 +55,7 @@ function formatDate(timestamp) {
     'Friday',
     'Saturday'
   ];
-  let day = daysHere[date.getDay()];
+
   let monthsHere = [
     'January',
     'February',
@@ -69,12 +69,14 @@ function formatDate(timestamp) {
     'November',
     'December'
   ];
+  let year = date.getFullYear();
   let month = monthsHere[date.getMonth() - 1];
   let dateNow = date.getDate();
-  let year = date.getFullYear();
+  let day = daysHere[date.getDay()];
 
   return `${day}, ${dateNow} ${month} ${year} `;
 }
+
 //add function to change the temperature to temp. of the searched city
 function getWeatherDetails(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -104,6 +106,29 @@ function getWeatherDetails(response) {
   let describeChange = document.querySelector('#describe-weather');
   describeChange.innerHTML = describeNow;
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector('#forecast');
+  let forecastHtml = `<div class=row>`;
+  let days = ['Thu', 'Fri', 'Sat', 'Sun', 'Mon'];
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="col-2">
+              <span class="day" id="forecast-day"> ${day}</span><br />
+              <img
+                src=" https://openweathermap.org/img/wn/10d@2x.png "
+                width="45"
+                class="forecast-pic"
+              /><br />
+              <span class="max-temperature">17°</span>
+              <span class="min-temperature"> 12°</span></div>
+             `;
+    +`</div>`;
+  });
+  forecastElement.innerHTML = forecastHtml;
+}
+
 function changeTemp() {
   let theCity = document.querySelector('#city-form');
   let apiCity = theCity.value;
@@ -169,3 +194,5 @@ submitCity.addEventListener('submit', showCelsius);
 
 let farenheitChange = document.querySelector('#farenheit');
 farenheitChange.addEventListener('click', showFarenheit);
+
+displayForecast();

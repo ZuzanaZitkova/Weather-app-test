@@ -147,3 +147,24 @@ a {
   color: black;
   text-decoration: none;
 }
+
+.weather-forecast {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 25px;
+}
+
+.weather-forecast .day {
+  font-weight: bold;
+  font-size: 20px;
+}
+.weather-forecast .min-temperature {
+  font-size: 18px;
+  color: rgb(113, 103, 103);
+}
+.weather-forecast .max-temperature {
+  font-size: 18px;
+}
+.weather-forecast .col-2 {
+  margin: 0px auto;
+}
